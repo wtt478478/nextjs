@@ -1,0 +1,115 @@
+/* variables.module.scss */
+@import "~rfs/scss";
+/*rfs 相关配置*/
+$rfs-base-value:12;
+$rfs-other-base-value:10;
+// 响应基础阈值将字体和其他属性分开（字体小于20不会缩放，其他属性小于10不会缩放）
+
+@function rfs-fluid-value($values, $property) {
+  // Convert to list
+  $values: if(type-of($values) !=list, ($values, ), $values);
+
+  $val: '';
+
+  // Loop over each value and calculate value
+  @each $value in $values {
+    @if $value==0 {
+      $val: $val + ' 0';
+    }
+
+    @else {
+      // Cache $value unit
+      $unit: if(type-of($value)=="number", unit($value), false);
+
+      // If $value isn't a number (like inherit) or $value has a unit (not px or rem, like 1.5em) or $ is 0, just print the value
+      @if not $unit or $unit !=px and $unit !=rem {
+        $val: $val + ' '+ $value;
+      }
+
+      @else {
+        // Remove unit from $value for calculations
+        $value: divide($value, $value * 0 + if($unit==px, 1, divide(1, $rfs-rem-value)));
+
+        // Only add the media query if the value is greater than the minimum value
+        @if (abs($value) <=$rfs-base-value and $property==font-size) or (abs($value) <=$rfs-other-base-value and $property !=font-size) or not $enable-rfs {
+          // 禁止进行响应操作
+          $val: $val+' '+if($rfs-unit==rem, #{divide($value, $rfs-rem-value)}rem, #{$value}px);
+        }
+
+        @else {
+          $value-min: '';
+
+          @if $property !=font-size {
+            // Calculate the minimum value
+            $value-min: $rfs-other-base-value+divide(abs($value) - $rfs-other-base-value, $rfs-factor);
+          }
+
+          @else {
+            // Calculate the minimum value
+            $value-min: $rfs-base-value+divide(abs($value) - $rfs-base-value, $rfs-factor);
+          }
+
+
+          // Calculate difference between $value and the minimum value
+          $value-diff: abs($value) - $value-min;
+
+          // Base value formatting
+          $min-width: if($rfs-unit==rem, #{divide($value-min, $rfs-rem-value)}rem, #{$value-min}px);
+
+          // Use negative value if needed
+          $min-width: if($value < 0, -$min-width, $min-width);
+
+          // Use `vmin` if two-dimensional is enabled
+          $variable-unit: if($rfs-two-dimensional, vmin, vw);
+
+          // Calculate the variable width between 0 and $rfs-breakpoint
+          $variable-width: #{divide($value-diff * 100, $rfs-breakpoint)}#{$variable-unit};
+
+          // Return the calculated value
+          $val: $val+' calc('+$min-width+if($value < 0, ' - ', ' + ')+$variable-width+')';
+        }
+      }
+    }
+  }
+
+  // Remove first space
+  @return unquote(str-slice($val, 2));
+}
+
+// RFS mixin
+@mixin rfs($values, $property: font-size) {
+  @if $values !=null {
+    $val: rfs-value($values);
+    $fluidVal: rfs-fluid-value($values, $property);
+
+    // Do not print the media query if responsive & non-responsive values are the same
+    @if $val==$fluidVal {
+      #{$property}: $val;
+    }
+
+    @else {
+      @include _rfs-rule {
+        #{$property}: if($rfs-mode==max-media-query, $val, $fluidVal);
+
+        // Include safari iframe resize fix if needed
+        min-width: if($rfs-safari-iframe-resize-bug-fix, (0 * 1vw), null);
+      }
+
+      @include _rfs-media-query-rule {
+        #{$property}: if($rfs-mode==max-media-query, $fluidVal, $val);
+      }
+    }
+  }
+}
+/* 颜色变量*/
+$primary-color: #F6CD45;
+
+:export {
+  primaryColor: $primary-color;
+}
+
+.title {
+  @include font-size(24px);
+  @include margin-bottom(24px);
+  // background-color: #F6CD45;
+}
