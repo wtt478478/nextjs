@@ -1,0 +1,136 @@
+@import "../../styles/variables.module.scss";
+.zby-notification-box {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding: 0 10px;
+  @include rfs(20px, top);
+  @include rfs(0, right);
+  z-index: 999;
+  width: 500px;
+
+  .toast {
+    // height: auto;
+    animation: right 0.3s;
+    .toastbody {
+      position: relative;
+      @include rfs(0, top);
+      @include rfs(0, right);
+      animation: right 0.3s;
+      display: flex;
+      // position: fixed;
+      @include margin-bottom(10px);
+      background: #fff;
+      .toastleft {
+        width: 52px;
+        @include padding(12px 12px 0px 16px);
+        // margin: 12px 12px 0px 16px;
+      }
+      .toastright {
+        flex: 1;
+        @include padding(12px 16px 12px 0);
+      }
+    }
+    .toastbodys {
+      display: flex;
+      @include margin-bottom(10px);
+      background: #fff;
+      position: relative;
+      @include rfs(0, top);
+      // right: 0;
+      animation: left 0.3s;
+      animation-fill-mode: forwards;
+
+      .toastleft {
+        width: 36px;
+        // padding: 12px;
+      }
+      .toastright {
+        flex: 1;
+      }
+    }
+    .btnshows {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      @include rfs(-7px, top);
+      @include rfs(-8px, left);
+      z-index: 1000;
+      // pointer-events: none;
+      cursor: pointer;
+      animation: btnshow 0.5s;
+    }
+    .btnhides {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      @include rfs(0, top);
+      @include rfs(0, left);
+      animation: btnhide 0.5s;
+    }
+    @-webkit-keyframes loading {
+      0% {
+        -webkit-transform: rotate3d(0, 0, 1, 0deg);
+        transform: rotate3d(0, 0, 1, 0deg);
+      }
+      100% {
+        -webkit-transform: rotate3d(0, 0, 1, 360deg);
+        transform: rotate3d(0, 0, 1, 360deg);
+      }
+    }
+
+    @keyframes loading {
+      0% {
+        -webkit-transform: rotate3d(0, 0, 1, 0deg);
+        transform: rotate3d(0, 0, 1, 0deg);
+      }
+      100% {
+        -webkit-transform: rotate3d(0, 0, 1, 360deg);
+        transform: rotate3d(0, 0, 1, 360deg);
+      }
+    }
+  }
+
+  @keyframes left {
+    0% {
+      @include rfs(0, right);
+    }
+    100% {
+      @include rfs(-500px, right);
+      display: none;
+    }
+  }
+  @keyframes right {
+    0% {
+      @include rfs(-500px, right);
+    }
+    100% {
+      @include rfs(0, right);
+    }
+  }
+  @keyframes btnshow {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes btnhide {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

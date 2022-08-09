@@ -1,0 +1,119 @@
+.scroller {
+  position: relative;
+  overflow: hidden;
+
+  .dots {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 110;
+
+    .dotselected {
+      background: #FFFFFF;
+    }
+
+    span {
+      cursor: pointer;
+      width: 14.61px;
+      height: 14.61px;
+      margin-left: 10px;
+      background: rgba(255, 255, 255, 0.3);
+      display: inline-block;
+      border-radius: 50%;
+    }
+
+  }
+
+  .inner {
+    display: flex;
+
+
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    overflow: scroll;
+    transition: transform 0.3s ease;
+
+    .figure {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      word-break: break-word;
+
+      .figcaption {
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        word-break: break-word;
+        z-index: 100;
+        color: #ffffff;
+        // padding: auto 30px 40px 30px;
+        bottom: 0;
+        left: 0;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 40px;
+
+        h2 {
+          font-weight: 600;
+          font-size: 36px;
+          text-transform: uppercase;
+          letter-spacing: 0.012em;
+          margin: 0 0 15px 0;
+        }
+
+        p {
+          margin: 0;
+          font-weight: 400;
+          font-size: 16px;
+          letter-spacing: 0.012em;
+          text-transform: uppercase;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          /* 超出部分省略号 */
+          word-break: break-all;
+          /* break-all(允许在单词内换行。) */
+          display: -webkit-box;
+          /** 对象作为伸缩盒子模型显示 **/
+          -webkit-box-orient: vertical;
+          /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+          -webkit-line-clamp: 3;
+          /** 显示的行数 **/
+        }
+      }
+
+      >span {
+        width: 100% !important;
+      }
+
+    }
+  }
+
+  .abridge {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    z-index: 110;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 40px;
+
+    >span {
+      flex: 1;
+      height: 171px !important;
+      border: 1px solid rgba(255, 255, 255, 0.6) !important;
+      margin-right: 16px !important;
+
+
+    }
+
+    >span:last-of-type {
+      margin-right: 0 !important;
+    }
+
+  }
+}

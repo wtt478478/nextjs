@@ -1,0 +1,187 @@
+@import "../../styles//variables.module.scss";
+.news {
+  width: 541px;
+  background: #fff;
+  @include padding(30px);
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    > big {
+      width: 52px;
+      height: 30px;
+
+      font-family: "PingFang SC";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 123.64%;
+      /* identical to box height, or 30px */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #000000;
+      position: relative;
+      span {
+        position: absolute;
+        bottom: -9px;
+        left: 0px;
+        display: inline-block;
+        content: "";
+        width: 81px;
+        height: 11px;
+        background: url("../../assets/img/liveline.svg") no-repeat;
+      }
+    }
+    span {
+      width: 57px;
+      height: 19px;
+
+      font-family: "PingFang SC";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 135.64%;
+      /* identical to box height, or 19px */
+
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.012em;
+      text-transform: uppercase;
+      position: relative;
+      color: rgba(0, 0, 0, 0.6);
+      span {
+        position: absolute;
+        width: 0;
+        height: 0;
+        line-height: 0;
+        font-size: 0;
+        right: -20px;
+        border: 6px solid transparent;
+        border-left-color: #d9d9d9;
+      }
+    }
+  }
+  .body {
+    width: 100%;
+    height: 456px;
+    overflow-y: auto;
+    @include padding(6px);
+
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+      height: 0rem;
+      background: #dcdcdc;
+      border-radius: 7px;
+    }
+    // 滚动条的轨道（里面装有Thumb）
+    &::-webkit-scrollbar-track {
+      border-radius: 0;
+    }
+    // 滚动条里面的小方块
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0;
+      background: #808080;
+      transition: all 0.2s;
+      border-radius: 0.25rem;
+    }
+
+    .item {
+      margin: 10px 0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      @include padding(0 30px);
+      list-style: none;
+      border-left: 2px dashed #ccc;
+      color: #999;
+      .time {
+        height: 30px;
+        display: flex;
+        align-items: center;
+      }
+      &.hovers {
+        .bodycontent {
+          //   color: black;
+          //   font-weight: 600;
+          //   text-decoration: underline MediumSlateBlue 3px;
+          animation: hoverkey 0.3s;
+          animation-fill-mode: forwards;
+        }
+      }
+      .bodycontent {
+        // color: #999;
+        animation: outkey 0.3s;
+      }
+      &:last-child {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        @include padding(0 30px);
+        list-style: none;
+        border-left: 0px solid #ccc;
+        color: #999;
+      }
+      &:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        @include margin-left(-6px);
+        top: 0;
+        left: -1px;
+        width: 11px;
+        height: 11px;
+        line-height: 11px;
+        text-align: center;
+        background: orange;
+        color: #fff;
+        @include font-size(14px);
+        border-radius: 50%;
+        // z-index: 1111;
+      }
+      &:last-child:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        @include margin-left(-6px);
+        top: 0;
+        left: 1.5px;
+        width: 11px;
+        height: 11px;
+        line-height: 11px;
+        text-align: center;
+        background: orange;
+        color: #fff;
+        @include font-size(14px);
+        border-radius: 50%;
+        // z-index: 1111;
+      }
+    }
+  }
+  @keyframes hoverkey {
+    0% {
+      color: #999;
+      font-weight: normal;
+      text-decoration: none;
+    }
+    100% {
+      color: black;
+      font-weight: 600;
+      text-decoration: underline MediumSlateBlue 3px;
+    }
+  }
+  @keyframes outkey {
+    0% {
+      color: black;
+      font-weight: 600;
+      text-decoration: underline MediumSlateBlue 3px;
+    }
+    100% {
+      color: #999;
+      font-weight: normal;
+      text-decoration: none;
+    }
+  }
+}

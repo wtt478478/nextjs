@@ -1,0 +1,8 @@
+.mapWrap {
+  position: relative;
+  display: flex;
+  .mapView{
+    flex: 1;
+    height: 600px;
+  }
+}

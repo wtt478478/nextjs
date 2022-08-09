@@ -1,0 +1,22 @@
+.barWrap {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    font-weight: 600;
+    font-size: 18px;
+
+    span {
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .content {
+    width: 100%;
+    padding: 12px 0;
+  }
+}

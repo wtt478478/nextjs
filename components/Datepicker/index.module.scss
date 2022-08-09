@@ -1,0 +1,64 @@
+.datepickerContainer {
+   display: inline-block;
+   :global{
+      .react-datepicker-popper {
+         z-index: 1000;
+     }
+   }
+   .datepicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: 40px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      font-weight: 400;
+      font-size: 14px;
+      color: #000000;
+      cursor: pointer;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+      line-height: 130%;
+      vertical-align: middle;
+      padding: 7px 8px;
+
+      &.disabled {
+         opacity: 0.1;
+         cursor: not-allowed;
+         // background: rgba(0, 0, 0, 0.2) !important;
+         border: 1px solid rgba(0, 0, 0, 1);
+         color: #000000 !important;
+         color: var(--text-colorD) !important;
+      }
+
+      &.borderless {
+         border: 0;
+      }
+
+      &.radiusless {
+         border-radius: 0;
+      }
+
+      &.largeDate {
+         height: 48px;
+      }
+
+      &.mediuDate {
+         height: 40px;
+      }
+
+      &.smallDate {
+         height: 32px;
+      }
+
+      &.miniDate {
+         width: auto;
+         height: 24px;
+         font-size: 12px;
+         padding: 0 8px;
+      }
+
+   }
+}

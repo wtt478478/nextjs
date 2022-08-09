@@ -1,0 +1,368 @@
+@import '../../styles/variables.module.scss';
+
+.conventionContianer {
+  width: 100%;
+  background-color: #F5F5F5;
+  @include padding(40px 0 60px);
+
+  // 顶部样式
+  .conventionNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include margin-bottom(40px);
+    @include padding(0 120px);
+
+
+    .conventionTitle {
+      @include rfs(216px, width);
+
+      >span {
+        display: block !important;
+      }
+    }
+
+    .conventionLink {
+      display: inline-flex;
+      align-items: center;
+
+      >span {
+        color: #000000;
+        font-weight: 400;
+        @include font-size(18px);
+        @include margin-right(8px);
+      }
+    }
+  }
+
+  // 内容
+  .conventionContent {
+
+    .conventionDetail {
+      display: flex;
+      @include margin-bottom(40px);
+      @include padding(0 120px);
+
+      >div {
+        display: flex;
+      }
+
+      .conventionDetailImg {
+        @include rfs(560px, min-width);
+        // @include rfs(321px, height);
+
+        >div {
+          position: relative;
+        }
+
+        .conventionDetailTags {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: flex;
+
+          >li {
+            font-weight: 400;
+            @include font-size(16px);
+            line-height: 130%;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            @include padding(12px 16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+            border-right: 1px solid rgba(255, 255, 255, 0.24);
+            background: transparent;
+
+            &.active {
+              border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+              border-right: 1px solid rgba(255, 255, 255, 0.2);
+              background: #F6CD45;
+              color: #000000;
+            }
+          }
+        }
+      }
+
+      .conventionDetailBox {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include padding-left(43px);
+
+
+        >div>h1 {
+          font-weight: 600;
+          @include font-size(32px);
+          // @include rfs(45px, line-height);
+          color: #000000;
+          text-decoration: underline;
+          @include margin-bottom(8px);
+          @include rfs(0.012em, letter-spacing)
+        }
+
+        .conventionDetailSummery {
+          @include margin-bottom(8px);
+          font-weight: 400;
+          @include font-size(14px);
+          line-height: 183%;
+          @include rfs(0.03em, letter-spacing);
+          color: rgba(0, 0, 0, 0.6);
+        }
+
+        .conventionDetailActivity {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+          @include padding(8px 12px);
+          background: #FFE4E4;
+          width: 100%;
+          color: #DC3C3C;
+          @include font-size(18px);
+
+          >div {
+            display: inline-flex;
+            align-items: center;
+
+            >span {
+              white-space: nowrap;
+              display: inline-block;
+              @include rfs(16px, min-width);
+              @include margin-right(8px !important);
+            }
+
+            &:last-child {
+              @include margin-left(20px);
+
+              >span:last-child {
+                margin-right: 0 !important;
+              }
+
+              .small {
+                @include font-size(14px);
+                @include margin-right(12px !important);
+              }
+            }
+          }
+        }
+
+        .conventionDetailSetting {
+          display: flex;
+          align-items: center;
+          @include margin-top(12px);
+
+
+          .conventionDetailCommen {
+            display: flex;
+            flex-wrap: wrap;
+            @include margin-left(16px);
+            // @include margin-bottom(12px);
+
+            >li {
+              @include font-size(14px);
+              color: rgba(0, 0, 0, 0.6);
+              @include margin-right(15px);
+
+              >span {
+                @include margin-left(5px);
+                vertical-align: middle;
+                // @include rfs(20px !important, min-width);
+              }
+            }
+          }
+        }
+
+      }
+
+      .conventionDetailAd {
+        position: relative;
+        @include margin-left(43px);
+
+        .close {
+          position: absolute;
+          right: 8px;
+          top: 8px;
+          color: rgba(255, 255, 255, 0.6);
+          cursor: pointer;
+        }
+      }
+
+    }
+
+    @media screen and (max-width: 1560px) {
+      .conventionDetail {
+        flex-direction: column;
+
+        .conventionDetailAd {
+          width: 100%;
+          margin-left: 0;
+          @include margin-top(20px);
+
+          >span {
+            width: 100% !important;
+            height: auto !important;
+          }
+        }
+      }
+
+    }
+
+    .conventionList {
+      overflow: auto;
+      white-space: nowrap;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .conventionItem {
+        @include rfs(270px, width);
+        display: inline-block;
+        @include margin-right(20px);
+        cursor: pointer;
+        white-space: normal;
+        vertical-align: top;
+
+        &:first-child {
+          @include margin-left(120px);
+        }
+
+        &:last-child {
+          @include margin-right(120px);
+        }
+
+        .conventionItemImg {
+          // flex: 1;
+          position: relative;
+          width: 100%;
+          @include margin-bottom(8px);
+
+          .conventionTags {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+
+            >li {
+              font-weight: 400;
+              @include font-size(12px);
+              line-height: 130%;
+              box-sizing: border-box;
+              color: #FFFFFF;
+              @include padding(8px 12px);
+              border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+              border-right: 1px solid rgba(255, 255, 255, 0.24);
+              background: transparent;
+
+              &.active {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                border-right: 1px solid rgba(255, 255, 255, 0.2);
+                background: #F6CD45;
+                color: #000000;
+              }
+            }
+          }
+        }
+
+        .conventionItemName {
+          font-weight: 400;
+          @include font-size(18px);
+          color: #000000;
+          @include margin-bottom(4px);
+          // white-space: nowrap; 
+          // overflow: hidden;
+          // text-overflow: ellipsis;         
+        }
+
+        .conventionItemInfo {
+          @include font-size(14px);
+          color: rgba(0, 0, 0, 0.6);
+        }
+      }
+
+
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 750px) {
+  .conventionContianer {
+    .conventionNav {
+      @include padding(0 24px);
+    }
+
+    .conventionContent {
+      flex-wrap: wrap;
+
+      .conventionDetail,
+      .conventionList {
+        width: 100%;
+      }
+
+      .conventionDetail {
+        flex-direction: column;
+        @include padding(0 24px);
+        >div{
+          flex-wrap: wrap;
+        }
+        .conventionDetailImg {
+          width: 100%;
+          // height: auto;
+          // display: flex;
+          justify-content: center;
+
+          >div>span {
+            width: 100% !important;
+            height: auto !important;
+          }
+        }
+
+        .conventionDetailBox {
+          @include padding(20px 0 0);
+
+          .conventionDetailActivity {
+            flex-wrap: wrap;
+          }
+        }
+
+        .conventionDetailAd {
+          margin-left: 0;
+          @include margin-top(20px);
+
+          >span {
+            width: 100% !important;
+          }
+        }
+      }
+
+      .conventionList {
+
+        .conventionItem {
+          &:first-child {
+            @include margin-left(24px);
+          }
+
+          &:last-child {
+            @include margin-right(24px);
+          }
+          .conventionItemImg {
+            // flex: 1;
+            position: relative;
+            width: 100%;
+            @include margin-bottom(8px);
+  
+            .conventionTags {
+             
+              >li {
+                @include padding(3px 6px);
+               
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

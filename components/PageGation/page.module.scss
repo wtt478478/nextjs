@@ -1,0 +1,77 @@
+@import "../../styles/variables.module.scss";
+.page-container {
+  display: flex;
+  @include font-size(14px);
+  align-items: center;
+  @include padding(4px 0);
+}
+
+.page-wrapper {
+  display: flex;
+  @include margin-left(8px);
+  align-items: center;
+}
+
+.page-wrapper li.page-item-active {
+  color: #f6cd45;
+  background-color: #000000;
+}
+
+.page-wrapper li {
+  width: 40px;
+  height: 40px;
+  @include rfs(1px #d9d9d9 solid, border);
+  cursor: pointer;
+  /* padding: 4px 12px; */
+  @include margin-right(8px);
+  @include margin-left(8px);
+  color: #272727;
+  border-radius: 2px;
+  @include rfs(40px, line-height);
+  text-align: center;
+  list-style: none;
+}
+
+.page-wrapper li:hover {
+  color: #1890ff;
+}
+.total {
+  color: rgba(0, 0, 0, 0.3);
+  @include margin-right(8px);
+  @include margin-left(16px);
+}
+.page-wrapper li.disabled {
+  color: #000000;
+  cursor: not-allowed;
+}
+
+.qucik-jump-wrapper {
+  color: rgba(0, 0, 0, 0.3);
+  @include margin-left(16px);
+}
+
+.qucik-jump-wrapper input {
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  @include padding(4px 8px);
+  @include rfs(1px solid #d9d9d9, border);
+  @include margin(0 8px);
+  border-radius: 2px;
+  @include rfs(1.45, line-height);
+}
+
+.qucik-jump-wrapper input:focus,
+.qucik-jump-wrapper input:hover {
+  border-right-width: 1px !important;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+.btn {
+  height: 40px;
+  width: 75px;
+  background: #000000;
+  border: 0;
+  color: white;
+  @include margin-left(16px);
+}

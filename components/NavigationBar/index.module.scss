@@ -1,0 +1,199 @@
+@import "../../styles/variables.module.scss";
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  //   justify-content: space-between;
+  background: black;
+  color: white;
+  padding: 24px;
+  .tablef {
+    width: 575.63px;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    .navtabpro {
+      // width: 37px;
+      height: 44px;
+      @include margin-right(24px);
+      font-family: "PingFang SC";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 135.64%;
+      /* or 24px */
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.012em;
+      text-transform: uppercase;
+      list-style: none;
+      color: #ffffff;
+      span {
+        position: relative;
+        color: #f6cd45;
+        transform: matrix(0.98, 0, -0.21, 1, 0, 0);
+        div {
+          position: absolute;
+          width: 100%;
+          height: 35px;
+          &.check {
+            background: url("../../assets/img/linebig.svg") no-repeat;
+            background-size: 100%;
+            // background-position: 0 1.85em;
+          }
+        }
+      }
+    }
+    .navtab {
+      // width: 37px;
+      height: 44px;
+      margin-right: 24px;
+      font-family: "PingFang SC";
+      font-style: normal;
+      font-weight: 400;
+      @include font-size(18px);
+      line-height: 135.64%;
+      /* or 24px */
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.012em;
+      text-transform: uppercase;
+      list-style: none;
+      color: #ffffff;
+
+      span {
+        position: relative;
+        div {
+          position: absolute;
+          width: 100%;
+          height: 20px;
+          &.check {
+            background: url("../../assets/img/tabcheck.svg") no-repeat;
+            background-size: 100%;
+            // background-position: 0 1.85em;
+          }
+          &.checks {
+            background: url("../../assets/img/linemiddle.svg") no-repeat;
+            background-size: 100%;
+            // background-position: 0 1.85em;
+          }
+        }
+      }
+    }
+  }
+  .tabcen {
+    flex: 1;
+    @include font-size(23px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > .cenre {
+      height: 40px;
+      font-family: "PingFang SC";
+      font-style: normal;
+      font-weight: 600;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 10000;
+      .cenImg {
+        width: 100%;
+        top: 10px;
+        left: -10px;
+        position: absolute;
+        height: 40px;
+        z-index: -1;
+        background: url("../../assets/img/bend.svg") no-repeat;
+      }
+      .cenImgs {
+        width: 100%;
+        position: absolute;
+        top: 15px;
+        right: -70px;
+        height: 40px;
+        z-index: -1;
+        background: url("../../assets/img/com.svg") no-repeat;
+      }
+    }
+  }
+  .tabrig {
+    width: 591px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .namelef {
+      display: flex;
+      align-items: center;
+      .now {
+        width: 92px;
+        height: 21px;
+        font-family: "PingFang SC";
+        font-style: normal;
+        font-weight: 200;
+        @include font-size(16px);
+        line-height: 130%;
+        /* identical to box height, or 21px */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: #ccc;
+      }
+    }
+    .namerig {
+      display: flex;
+      align-items: center;
+      .name {
+        // width: 81px;
+        height: 27px;
+        .username {
+          position: relative;
+          span {
+            position: absolute;
+            bottom: -9px;
+            left: 0px;
+            display: inline-block;
+            content: "";
+            width: 81px;
+            height: 11px;
+            background: url("../../assets/img/nameline.svg") no-repeat;
+          }
+        }
+        .icon {
+          margin: 0 7px;
+        }
+        font-family: "PingFang SC";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 135.64%;
+        /* or 27px */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.012em;
+        text-transform: uppercase;
+
+        color: #ffffff;
+      }
+      .tu {
+        width: 274px;
+        height: 18px;
+
+        font-family: "PingFang SC";
+        font-style: normal;
+        font-weight: 400;
+        @include font-size(14px);
+        // line-height: 130%;
+        /* or 18px */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+@import '../../../styles/variables.module.scss';
+
+.infoWrap {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 600px;
+  background-color: #ffffff;
+  // padding: 30px 30px 0px;
+  @include padding(30px 30px 0px);
+
+  nav {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 68px;
+    margin-bottom: 12px;
+
+    ul {
+      &.selected {
+        background: #F6CD45;
+        font-weight: 600;
+        font-size: 14px;
+        color: #000000;
+      }
+
+      flex: 1;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      border-radius: 51px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+  }
+
+  .barInfo {
+    display: flex;
+    justify-content: space-between;
+
+    .block {
+      width: calc((100% - 4px)/2);
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 79px;
+      background: rgba(0, 0, 0, 0.03);
+      padding: 16px;
+
+      .subtitle {
+        font-weight: 400;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+        line-height: 1;
+      }
+
+      strong {
+        &.up {
+          color: #D1342C;
+        }
+
+        &.down {
+          color: #25C8A0;
+        }
+
+        font-weight: 600;
+        font-size: 22px;
+        color: #000000;
+      }
+
+      p {
+        margin-top: 8px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #000000;
+      }
+
+
+    }
+  }
+
+  .infoContent {
+    flex: 1;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+      height: 0rem;
+      background: #dcdcdc;
+      border-radius: 7px;
+    }
+
+    // 滚动条的轨道（里面装有Thumb）
+    &::-webkit-scrollbar-track {
+      border-radius: 0;
+    }
+
+    // 滚动条里面的小方块
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0;
+      background: #808080;
+      transition: all 0.2s;
+      border-radius: 0.25rem;
+    }
+  }
+}
