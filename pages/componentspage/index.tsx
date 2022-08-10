@@ -141,6 +141,15 @@ const Home: NextPage = (props: any) => {
         <title>煤炭资源网</title>
         <meta name="description" content="煤炭资源网" />
         <link rel="icon" href="/favicon.ico" />
+        <script  dangerouslySetInnerHTML={{__html: `
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?7f01618ccdf1f6b6e31ed92b4af1d7c4";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        `}}></script>
       </Head>
 
       <main className={styles.main}>
