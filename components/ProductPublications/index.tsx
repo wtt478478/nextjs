@@ -159,11 +159,11 @@ export default function ProductPublications() {
     isRead: false,
   })
   const [selectKey, setSelectKey] = useState(0)
-  var _hmt:any = _hmt || [];
+  var _hmt: any = _hmt || [];
   (function () {
-    var hm = document.createElement("script");
+    var hm = document && document.createElement("script");
     hm.src = "https://hm.baidu.com/hm.js?7f01618ccdf1f6b6e31ed92b4af1d7c4";
-    var s:any = document.getElementsByTagName("script")[0];
+    var s: any = document && document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
   })();
   return (
