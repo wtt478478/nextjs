@@ -12,7 +12,7 @@ import Slider from "../../components/Slider";
 import Chart from "../../components/Chart";
 import PageGation from "../../components/PageGation";
 import NavigationBar from "../../components/NavigationBar";
-import ProductPublications from "../../components/ProductPublications";
+// import ProductPublications from "../../components/ProductPublications";
 import Toasts from "../../components/Toasts";
 import Footer from "../../components/Footer";
 import Table from "../../components/Table";
@@ -21,6 +21,12 @@ import News from "../../components/News";
 import Live from "../../assets/img/liveImg.svg";
 import People from "../../assets/img/people.svg";
 import ConventionTraining from "../../components/ConventionTraining";
+import dynamic from "next/dynamic";
+
+const ProductPublications = dynamic(() => import('@/components/ProductPublications'), {
+  ssr: false,
+})
+
 const imgList = [
   {
     title: "四川试行主动错避峰负荷电价政策",

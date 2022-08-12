@@ -11,7 +11,7 @@ import Link from "next/link";
 import Button from "../Button";
 
 const colors = ['rgba(100, 133, 184, 0.4)', 'rgba(39, 39, 37, 0.4)', 'rgba(1, 94, 197, 0.4)', 'rgba(186, 9, 25, 0.3)', '#9FABAB', 'rgba(205, 212, 214, 0.4)', 'rgba(130, 165, 156, 0.4)', 'rgba(0, 114, 191, 0.4)']
-export default function ProductPublications() {
+export default function ProductPublications(porps: any) {
   const [data, setdata]: any = useState([
     {
       name: '“三西”地区煤炭运输格局未来变化趋势研究',
@@ -159,13 +159,7 @@ export default function ProductPublications() {
     isRead: false,
   })
   const [selectKey, setSelectKey] = useState(0)
-  var _hmt: any = _hmt || [];
-  (function () {
-    var hm = document && document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?7f01618ccdf1f6b6e31ed92b4af1d7c4";
-    var s: any = document && document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
+
   return (
     <div className={styles.productContianer}>
       {/* 产品刊物 */}
@@ -176,7 +170,9 @@ export default function ProductPublications() {
           <Image src={LogopublicationSvg}></Image>
         </div>
         <Link href="/">
-          <a onClick={() => _hmt.push(['_trackEvent', 'nav', 'click', 'literature'])} href="http://www.example.com/literature" className={styles.productLink}><span>查看所有刊物</span> <Image src={CheckAllSvg}></Image></a>
+          <a
+            onClick={() => window && window._hmt && window._hmt.push(['_trackEvent', 'nav', 'click', 'literature'])} href="http://www.example.com/literature"
+            className={styles.productLink}><span>查看所有刊物</span> <Image src={CheckAllSvg}></Image></a>
         </Link>
       </div>
       {/* 内容 */}
