@@ -233,7 +233,7 @@ export default function ConventionTraining() {
         <div className={styles.conventionTitle}>
           <Image src={LogoconventionSvg}></Image>
         </div>
-        <Link href="/">
+        <Link href="/componentspage/all">
           <a className={styles.conventionLink}><span>查看所有</span> <Image src={CheckAllSvg}></Image></a>
         </Link>
       </div>

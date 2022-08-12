@@ -172,7 +172,7 @@ console.log(window._hmt,'window');
         </div>
         <Link href="/">
           <a
-            onClick={() => window && window._hmt && window._hmt.push(['_trackEvent', 'nav', 'click', 'literature'])} href="http://www.example.com/literature"
+            onClick={() => window && window._hmt && window._hmt.push(['_trackEvent', 'a', 'click', 'checkAll'])}
             className={styles.productLink}><span>查看所有刊物</span> <Image src={CheckAllSvg}></Image></a>
         </Link>
       </div>
@@ -181,7 +181,9 @@ console.log(window._hmt,'window');
         {/* 左侧刊物详情 */}
         <div className={styles.productDetail}>
           {/* 刊物图片 */}
-          <div className={styles.productDetailImg}>
+          <div className={styles.productDetailImg} 
+            onClick={() => window && window._hmt && window._hmt.push(['_trackEvent', 'div', 'click', 'detail'])}
+            >
             <div>
               <Image src={selectData && selectData.img}></Image>
             </div>
@@ -209,17 +211,22 @@ console.log(window._hmt,'window');
             <p className={styles.productDetailPrice}><span>￥</span><span>{selectData && selectData.price}</span></p>
             <ul className={styles.productDetailCommen}>
               <li>
-                <Image width={13} height={13} src={CommenSvg}></Image>
+                <Image width={13} height={13} src={CommenSvg} 
+                alt="评论" onClick={() => window && window._hmt && window._hmt.push(['_trackEvent', 'a', 'click', 'checkAll'])}
+                ></Image>
                 <span>评论 {selectData && selectData.commenNum && `(${selectData.commenNum})`}</span>
               </li>
               <li>
                 {
                   selectData && selectData.isRead ?
-                    <> <Image width={13} height={13} src={UnlikeSvg}></Image>
+                    <> <Image width={13} height={13} src={UnlikeSvg}
+                alt="未订阅"
+                    
+                    ></Image>
                       <span>订阅</span>
                     </>
                     :
-                    <> <Image width={13} height={13} src={UnlikeSvg}></Image>
+                    <> <Image width={13} height={13} src={UnlikeSvg} alt="已订阅"></Image>
                       <span>已订阅</span>
                     </>
                 }
@@ -239,7 +246,8 @@ console.log(window._hmt,'window');
                 <li key={index} className={`${styles.productItem} ${selectKey === index ? styles.active : undefined}`}
                   onClick={() => {
                     setSelectData(item);
-                    setSelectKey(index)
+                    setSelectKey(index);
+                    window && window._hmt && window._hmt.push(['_trackEvent', 'li', 'click', `刊物${item.name}`])
                   }}
                 >
                   {/* 刊物图片 */}
