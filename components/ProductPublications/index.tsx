@@ -159,6 +159,7 @@ export default function ProductPublications(porps: any) {
     isRead: false,
   })
   const [selectKey, setSelectKey] = useState(0)
+console.log(window._hmt,'window');
 
   return (
     <div className={styles.productContianer}>
