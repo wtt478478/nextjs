@@ -212,7 +212,7 @@ console.log(window._hmt,'window');
             <ul className={styles.productDetailCommen}>
               <li>
                 <Image width={13} height={13} src={CommenSvg} 
-                alt="评论" onClick={() => window && window._hmt && window._hmt.push(['_trackEvent', 'a', 'click', 'checkAll'])}
+                alt="评论" onClick={() => window && window._hmt && window._hmt.push(['_trackEvent', 'a', 'click', '评论'])}
                 ></Image>
                 <span>评论 {selectData && selectData.commenNum && `(${selectData.commenNum})`}</span>
               </li>
